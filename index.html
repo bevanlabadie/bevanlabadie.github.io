@@ -107,13 +107,13 @@
   .terminal{
     flex-shrink:0;
     width:100%;
-    max-width:380px;
+    max-width:440px;
     background:var(--surface);
     border:1px solid var(--line);
     border-radius:6px;
     overflow:hidden;
     font-family:var(--mono);
-    font-size:12.5px;
+    font-size:12px;
     box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
   }
   .terminal-bar{
@@ -130,15 +130,13 @@
   }
   .terminal-body{
     padding:14px 16px 16px;
-    height:172px;
+    height:186px;
     overflow:hidden;
   }
   .terminal-line{
-    white-space:nowrap;
-    margin:0 0 7px;
-    color:var(--text-muted);
-    opacity:0;
-    animation:fadeIn 0.25s ease forwards;
+    white-space:normal;
+    word-break:break-word;
+    margin:0 0 8px;
   }
   .terminal-line .ts{color:var(--text-muted);}
   .terminal-line .lvl-info{color:#7DA1C4;}
@@ -360,12 +358,12 @@
   }
 
   if (reduced || !body){
-    if (body){ lines.slice(-6).forEach(function(l){ body.appendChild(renderLine(l)); }); }
+    if (body){ lines.slice(-5).forEach(function(l){ body.appendChild(renderLine(l)); }); }
     return;
   }
 
   var i = 0;
-  var MAX_VISIBLE = 6;
+  var MAX_VISIBLE = 5;
 
   function tick(){
     body.appendChild(renderLine(lines[i % lines.length]));
